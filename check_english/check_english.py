@@ -10,11 +10,23 @@ answers = ["is", "am", "in"]
 
 for i in range(len(questions)):
     print(f"Вопрос: {questions[i]}")
-    answer = input("Заполните пробел: ")
-    if answer == answers[i]:
-        answers_count += 1
-        print("Ответ верный!")
-    else:
+    attemt = 3
+    has_answer = False
+    while True:
+        answer = input("Заполните пробел: ")    
+        attemt -= 1
+        if attemt == 0:
+            break
+        
+        if answer == answers[i]:
+            answers_count += 1
+            has_answer = True
+            print("Ответ верный!")
+            break
+        else:
+            print(f"Осталось попыток: {attemt}, попробуйте еще раз!")
+            # 
+    if has_answer == False:
         print(f"Неправильно. \nПравильный ответ: {answers[i]}")
     print("")
 
