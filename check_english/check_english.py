@@ -1,12 +1,8 @@
-# Домашняя работа 26.05.22
-# Andrey T.
-
-print("Привет! Предлагаю проверить свои знания английского!\nРасскажи, как тебя зовут!")
-
-user_name = input("Введите имя пользователя: ")
-
-print(f"Привет, {user_name}, начинаем тренировку!")
-print("")
+print("Привет! Предлагаю проверить свои знания английского! Наберите \"ready\", чтобы начать!")
+ready_answer = input("> ")
+if ready_answer != "ready":
+    print("Кажется, вы не хотите играть. Очень жаль")
+    exit(0)
 
 answers_count = 0
 questions = ["My name ___ Vova", "I ___ a coder", "I live ___ Moscow"]
@@ -17,14 +13,11 @@ for i in range(len(questions)):
     answer = input("Заполните пробел: ")
     if answer == answers[i]:
         answers_count += 1
-        print("Ответ верный!\nВы получаете 10 баллов!")
+        print("Ответ верный!")
     else:
         print(f"Неправильно. \nПравильный ответ: {answers[i]}")
     print("")
 
-print("")
-print(f"Вот и все, {user_name}!")
-print(f"Вы ответили на {answers_count} вопросов из 3 верно.")
-print(f"Вы заработали {answers_count * 10} баллов.")
+question_count = len(questions)
 percent = round(100 * answers_count / len(questions), 0)
-print(f"Это {percent} процентов.")
+print(f"Вот и все! Вы ответили на {answers_count} вопросов из {question_count} верно, это {percent} процентов.")
