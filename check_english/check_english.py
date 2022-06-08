@@ -1,30 +1,34 @@
-# Домашняя работа 26.05.22
-# Andrey T.
+print("Привет! Предлагаю проверить свои знания английского! Наберите \"ready\", чтобы начать!")
+ready_answer = input("> ")
+if ready_answer != "ready":
+    print("Кажется, вы не хотите играть. Очень жаль")
+    exit(0)
 
-print("Привет! Предлагаю проверить свои знания английского!\nРасскажи, как тебя зовут!")
-
-user_name = input("Введите имя пользователя: ")
-
-print(f"Привет, {user_name}, начинаем тренировку!")
-print("")
-
-answers_count = 0
+answered_questions = 0
 questions = ["My name ___ Vova", "I ___ a coder", "I live ___ Moscow"]
 answers = ["is", "am", "in"]
 
 for i in range(len(questions)):
     print(f"Вопрос: {questions[i]}")
-    answer = input("Заполните пробел: ")
-    if answer == answers[i]:
-        answers_count += 1
-        print("Ответ верный!\nВы получаете 10 баллов!")
-    else:
+    
+    # Добавили флаг, чтобы после неправильных ответов показать верный ответ.
+    has_answer = False
+        
+    for j in range(3, 0, -1):
+        attempts_left = j -1
+        user_answer = input("Заполните пробел: ")    
+        if user_answer == answers[i]:
+            answered_questions += 1
+            has_answer = True
+            print("Ответ верный!")
+            break
+        elif attempts_left > 0:
+            print(f"Осталось попыток: {attempts_left}, попробуйте еще раз!")
+    
+    if has_answer == False:
         print(f"Неправильно. \nПравильный ответ: {answers[i]}")
     print("")
 
-print("")
-print(f"Вот и все, {user_name}!")
-print(f"Вы ответили на {answers_count} вопросов из 3 верно.")
-print(f"Вы заработали {answers_count * 10} баллов.")
-percent = round(100 * answers_count / len(questions), 0)
-print(f"Это {percent} процентов.")
+question_count = len(questions)
+percent = round(100 * answered_questions / len(questions), 2)
+print(f"Вот и все! Вы ответили на {answered_questions} вопросов из {question_count} верно, это {percent} процентов.")
