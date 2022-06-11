@@ -68,10 +68,10 @@ for k, v in check_words.items():
     print(f'{k}, {word_length} букв, начинается на {v[0]}..')
     user_answer = input()
     if user_answer == v:
-        print(f'Верно, {k} — это {v}.')
+        print(f'Верно, {k.title()} — это {v}.')
         answers[k] = True
     else:
-        print(f'Неверно, {k} — это {v}.')
+        print(f'Неверно, {k.title()} — это {v}.')
         answers[k] = False
         
 # Выводим результат
