@@ -1,6 +1,10 @@
 def show_statistic(filename):
     """
-    Test
+    show statistic from file with format
+    AAA 1
+    BBB 2
+    qwerty 3
+    ...
     """
     history_list = []
     with open(filename, 'rt') as file:
@@ -10,6 +14,4 @@ def show_statistic(filename):
     print(f"Максимальный рекорд: {max(history_list)}")
 
 if __name__ == "__main__":
-    # import doctest
-    # doctest.testmod()
     show_statistic("history.txt")

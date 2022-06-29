@@ -8,18 +8,18 @@ def start_game(words_file):
 
     """
     wprds_list = prepeare_words(words_file)
-
+    user_score = 0
     for word in wprds_list:
         shuffle_str = shuffle_string(word)
         print(f"Угадайте слово: {shuffle_str}")
         user_answer = input("> ")
         if user_answer == word:
             print("Верно! Вы получаете 10 очков.")
-            global user_score
             user_score += 10
         else:
             print(f"Неверно! Верный ответ – {word}.")
         print("")
+    return user_score
 
 def prepeare_words(filename):
     """
@@ -29,7 +29,7 @@ def prepeare_words(filename):
     Returns:
         List of words
     """
-    with open(filename, 'rt') as file:
+    with open(filename, mode='rt', encoding="utf-8") as file:
         return [item.rstrip("\n") for item in file]
 
 
