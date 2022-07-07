@@ -11,7 +11,7 @@ def load_students(filename):
     list of students
     """
     filepath = f'data/{filename}'
-    with open(filepath, 'rt') as file:
+    with open(filepath, 'rt', encoding='utf-8') as file:
         data = json.load(file)
         return data
 
@@ -26,7 +26,7 @@ def load_professions(filename):
     list of professions
     """
     filepath = f'data/{filename}'
-    with open(filepath, 'rt') as file:
+    with open(filepath, 'rt', encoding='utf-8') as file:
         data = json.load(file)
         return data
 
