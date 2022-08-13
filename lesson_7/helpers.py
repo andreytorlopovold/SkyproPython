@@ -37,7 +37,7 @@ def get_student_by_pk(students, pk):
     '''
     Get students dictionary by pk
 
-    Tests:
+    tests:
     >>> students = [{"pk": 1, "full_name":  "Jane Snake", "skills": ["Python", "Go", "Linux"]}]
     >>> s = get_student_by_pk(students, 1)
     >>> s == {"pk": 1, "full_name":  "Jane Snake", "skills": ["Python", "Go", "Linux"]}
@@ -56,7 +56,7 @@ def get_profession_by_title(professions, title):
     """
     Get profession info by title
 
-    Tests:
+    tests:
     >>> professions = [{ "pk": 1, "title": "Backend", "skills": ["Python", "Linux", "Docker", "SQL", "Flask"] }]
     >>> p = get_profession_by_title(professions, "Backend")
     >>> p == { "pk": 1, "title": "Backend", "skills": ["Python", "Linux", "Docker", "SQL", "Flask"] }
@@ -80,7 +80,7 @@ def check_fitness(student, profession):
      "fit_percent": 50
      }
 
-    Tests:
+    tests:
     >>> student = {"pk": 1, "full_name":  "Jane Snake", "skills": ["Python", "Go", "Linux"]}
     >>> profession = {"pk": 1, "title": "Backend", "skills": ["Python", "Linux", "Docker", "SQL", "Flask"]}
     >>> result = check_fitness(student, profession)
