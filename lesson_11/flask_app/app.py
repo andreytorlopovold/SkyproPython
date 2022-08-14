@@ -17,13 +17,23 @@ def show_candidate(id):
     card = {"name": c.name, "position": c.position, "img": c.picture_url, "skills": ", ".join(c.skills)}
     return render_template('card.html', card=card)
 
+@app.route("/search/")
+def show_search__name_error():
+    return "Строка поиска по имени пустая!"
+
 @app.route("/search/<name>")
 def search_by_name(name):
+    print(f">>> {name}")
     search_result = get_candidates_by_name(candidates, name)
     if len(search_result) == 0:
         return "Данные не найдены"
     items = list(map(lambda x: {"id": x.id, "name": x.name}, search_result))
     return render_template('list.html', items=items)
+
+
+@app.route("/skill/")
+def show_search_skill_error():
+    return "Строка поиска по скиллам пустая!"
 
 @app.route("/skill/<skill>")
 def filter_by_skill(skill):
